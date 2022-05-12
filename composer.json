@@ -1,0 +1,17 @@
+{
+    "name": "jedi/logger",
+    "description": "logger for web applications, to generate lonce and elegance",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jedi\\Logger\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Linhares"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
