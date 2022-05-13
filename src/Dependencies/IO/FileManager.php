@@ -41,17 +41,6 @@ class FileManager implements IFileManager
         return $collection[$last];
     }
 
-    // public function getAll()
-    // {
-    //     $collection = [];
-
-    //     foreach(self::$driver->read() as $item){
-    //         $collection[] = $item;
-    //     }
-
-    //     return $collection;
-    // }
-
     public function find($specify)
     {
         foreach(self::$driver->read() as $item){
@@ -59,6 +48,5 @@ class FileManager implements IFileManager
                 return$item;
             }
         }
-
     }
 }

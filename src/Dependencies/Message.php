@@ -3,6 +3,7 @@
 namespace Jedi\Dependencies;
 
 use Jedi\Contracts\IMessage;
+use Jedi\Dependencies\Memory\MemoryDevice;
 
 class Message implements IMessage
 {
@@ -15,14 +16,11 @@ class Message implements IMessage
 
     public function handle(): string
     {
-
         $time = date('Y-m-d H:i:s');
 
         $result = $this->row;
 
-        $memory = '4.00 MB';
-
-        $fullrow = "[ $time ] RESULT : {$result} | MEMORY: {$memory}\n";
+        $fullrow = "[ $time ] {$result} \n";
 
         return $fullrow;
     }

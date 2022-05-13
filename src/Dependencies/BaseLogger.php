@@ -6,17 +6,12 @@ use Jedi\Contracts\{ IMemoryDevice, IFileManager, IMessage};
 
 abstract class BaseLogger
 {
-    protected IMemoryDevice $memoryDevice;
-
     protected IFileManager $fileManager;
 
     protected string $driver;
 
-    public function __construct($driver=null, IMemoryDevice $memoryDevice=null, IFileManager $fileManager=null)
+    public function __construct($driver=null, IFileManager $fileManager=null)
     {
-        if(empty($memoryDevice))
-            $memoryDevice = new \Jedi\Dependencies\Memory\MemoryDevice;
-
         if(empty($fileManager))
             $fileManager = new \Jedi\Dependencies\IO\FileManager;
 
@@ -25,8 +20,6 @@ abstract class BaseLogger
         }
         
         $this->setFileManager($fileManager);
-
-        $this->setMemoryDevice($memoryDevice);
     }
 
     /**
@@ -45,24 +38,6 @@ abstract class BaseLogger
     public function setDriver(string $driver): void
     {
         $this->fileManager->setDriver($driver);
-    }
-
-    /**
-     * @param void
-     * @return IMemoryDevice
-     */
-    public function getMemoryDevice(): IMemoryDevice
-    {
-        return $this->memoryDevice;
-    }
-
-    /**
-     * @param IMemoryDevice $memoryDevice
-     * @return void
-     */
-    public function setMemoryDevice(IMemoryDevice $memoryDevice): void
-    {
-        $this->memoryDevice = $memoryDevice;
     }
 
     /**
